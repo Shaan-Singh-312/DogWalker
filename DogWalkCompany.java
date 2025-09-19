@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class DogWalkCompany
 {
     /**
@@ -11,7 +12,7 @@ public class DogWalkCompany
         schedule = new int[24];
     }
 
-    public String toString() {
+    public String toString(){
         String s ="";
         for(int i = 0; i < schedule.length; i++){
             s += i + " "+ schedule[i] + "\n";
@@ -19,9 +20,19 @@ public class DogWalkCompany
         return s;
     }
 
-    public int numAvailableDogs(int hour)
-    { /* implementation not shown */
-    return 0;}
+    public int addDogs(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("What hour?");
+        int hour = s.nextInt();
+        System.out.println("How many dogs?");
+        int dogs = s.nextInt();
+        schedule[hour] = dogs;
+        return hour;
+    }
+
+    public int numAvailableDogs(int hour){ /* implementation not shown */
+        return schedule[hour];
+    }
 
     /**
      * Decreases, by numberDogsWalked, the number of dogs available for a walk
@@ -29,11 +40,7 @@ public class DogWalkCompany
      * Preconditions: 0 <= hour <= 23
      * numberDogsWalked > 0
      */
-    public void updateDogs(int hour, int numberDogsWalked)
-    {
-
+    public void updateDogs(int hour, int numberDogsWalked) {
+        schedule[hour] -= numberDogsWalked;
     }
-
-/* There may be instance variables, constructors,
-and methods that are not shown. */
 }

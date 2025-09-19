@@ -4,10 +4,6 @@ public class DogWalker
      per hour */
     private int maxDogs;
 
-    public int getMaxDogs() {
-        return maxDogs;
-    }
-
     /** The dog-walking company this dog walker is associated with */
     private DogWalkCompany company;
 
@@ -15,9 +11,9 @@ public class DogWalker
      * Assigns max to maxDogs and comp to company
      * Precondition: max > 0
      */
-    public DogWalker(int max, DogWalkCompany comp)
-    { /* implementation not shown */
-
+    public DogWalker(int max, DogWalkCompany comp) { /* implementation not shown */
+        company = comp;
+        maxDogs = max;
     }
 
     /**
@@ -26,12 +22,31 @@ public class DogWalker
      * Preconditions: 0 <= hour <= 23
      * maxDogs > 0
      */
-    public int walkDogs(int hour)
-    { /* to be implemented in part (a) */
-        int numDogsWalked = 0;
-
-
-
-        return numDogsWalked;
+    public int walkDogs(int hour) { /* to be implemented in part (a) */
+        int dogs = company.numAvailableDogs(hour);
+        if (dogs < maxDogs){
+            company.updateDogs(hour,dogs);
+            return dogs;
+        }
+        else{
+            company.updateDogs(hour,maxDogs);
+            return maxDogs;
+        }
     }
+
+    public int dogWalkShift(int startHour, int endHour){
+        int pay = 0;
+        while (startHour <= endHour){
+            int dogs = walkDogs(startHour);
+            pay += dogs *5;
+
+            if (dogs == maxDogs || startHour >= 9 && endHour <= 17){
+                pay += 3;
+            }
+            startHour ++;
+
+        }
+        return pay;
+    }
+
 }
