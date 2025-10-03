@@ -7,16 +7,16 @@ public class DogWalkCompany
      * for a walk during the time specified by hour
      * Precondition: 0 <= hour <= 23
      */
-    private int[] schedule;
+    private ArrayList<Integer> schedule;
 
-    public DogWalkCompany(int i, ArrayList<Integer> f){
-        schedule = new int[24];
+    public DogWalkCompany(ArrayList<Integer> f){
+        schedule = f;
     }
 
     public String toString(){
         String s ="";
-        for(int i = 0; i < schedule.length; i++){
-            s += i + " "+ schedule[i] + "\n";
+        for(int i = 0; i < schedule.size(); i++){
+            s += i + " "+ schedule.get(i) + "\n";
         }
         return s;
     }
@@ -27,12 +27,12 @@ public class DogWalkCompany
         int hour = s.nextInt();
         System.out.println("How many dogs?");
         int dogs = s.nextInt();
-        schedule[hour] = dogs;
+        schedule.set(hour, dogs);
         return hour;
     }
 
     public int numAvailableDogs(int hour){ /* implementation not shown */
-        return schedule[hour];
+        return schedule.get(hour);
     }
 
     /**
@@ -42,6 +42,6 @@ public class DogWalkCompany
      * numberDogsWalked > 0
      */
     public void updateDogs(int hour, int numberDogsWalked) {
-        schedule[hour] -= numberDogsWalked;
+        schedule.set(hour, schedule.get(hour) - numberDogsWalked);
     }
 }

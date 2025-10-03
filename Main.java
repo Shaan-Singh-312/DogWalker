@@ -41,7 +41,7 @@ public class Main {
                 int x = s.nextInt();
                 y.add(x);
             }
-            d.add(new DogWalkCompany(i,y));
+            d.add(new DogWalkCompany(y));
         }
 
 
