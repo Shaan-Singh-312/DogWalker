@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class DogWalkCompany
 {
@@ -8,7 +9,7 @@ public class DogWalkCompany
      */
     private int[] schedule;
 
-    public DogWalkCompany(){
+    public DogWalkCompany(int i, ArrayList<Integer> f){
         schedule = new int[24];
     }
 
