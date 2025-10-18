@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 public class DogWalkCompany
 {
@@ -7,16 +6,16 @@ public class DogWalkCompany
      * for a walk during the time specified by hour
      * Precondition: 0 <= hour <= 23
      */
-    private ArrayList<Integer> schedule;
+    private int[] schedule;
 
-    public DogWalkCompany(ArrayList<Integer> f){
+    public DogWalkCompany(int[] f){
         schedule = f;
     }
 
     public String toString(){
         String s ="";
-        for(int i = 0; i < schedule.size(); i++){
-            s += i + " "+ schedule.get(i) + "\n";
+        for(int i = 0; i < schedule.length; i++){
+            s += i + " "+ schedule[i] + "\n";
         }
         return s;
     }
@@ -27,12 +26,12 @@ public class DogWalkCompany
         int hour = s.nextInt();
         System.out.println("How many dogs?");
         int dogs = s.nextInt();
-        schedule.set(hour, dogs);
+        schedule[hour] = dogs;
         return hour;
     }
 
     public int numAvailableDogs(int hour){ /* implementation not shown */
-        return schedule.get(hour);
+        return schedule[hour];
     }
 
     /**
@@ -42,6 +41,6 @@ public class DogWalkCompany
      * numberDogsWalked > 0
      */
     public void updateDogs(int hour, int numberDogsWalked) {
-        schedule.set(hour, schedule.get(hour) - numberDogsWalked);
+        schedule[hour] -= numberDogsWalked;
     }
 }

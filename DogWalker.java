@@ -6,19 +6,15 @@ public class DogWalker
 
     /** The dog-walking company this dog walker is associated with */
     private DogWalkCompany company;
-    private int start;
-    private int end;
 
 
     /**
      * Assigns max to maxDogs and comp to company
      * Precondition: max > 0
      */
-    public DogWalker(int max, DogWalkCompany comp, int shiftStart, int shiftEnd) { /* implementation not shown */
+    public DogWalker(int max, DogWalkCompany comp) { /* implementation not shown */
         company = comp;
         maxDogs = max;
-        end = shiftEnd;
-        start = shiftStart;
     }
 
     /**
@@ -39,7 +35,7 @@ public class DogWalker
         }
     }
 
-    public int dogWalkShift(){
+    public int dogWalkShift(int start, int end){
         int pay = 0;
         while (start <= end){
             int dogs = walkDogs(start);
