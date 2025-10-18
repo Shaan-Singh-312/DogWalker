@@ -1,6 +1,6 @@
 import java.util.Scanner;
-public class DogWalkCompany
-{
+
+public class DogWalkCompany {
     /**
      * Returns the number of dogs, always greater than 0, that are available
      * for a walk during the time specified by hour
@@ -8,19 +8,19 @@ public class DogWalkCompany
      */
     private int[] schedule;
 
-    public DogWalkCompany(int[] f){
+    public DogWalkCompany(int[] f) {
         schedule = f;
     }
 
-    public String toString(){
-        String s ="";
-        for(int i = 0; i < schedule.length; i++){
-            s += i + " "+ schedule[i] + "\n";
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < schedule.length; i++) {
+            s += i + " " + schedule[i] + "\n";
         }
         return s;
     }
 
-    public int addDogs(){
+    public int addDogs() {
         Scanner s = new Scanner(System.in);
         System.out.println("What hour?");
         int hour = s.nextInt();
@@ -30,7 +30,7 @@ public class DogWalkCompany
         return hour;
     }
 
-    public int numAvailableDogs(int hour){ /* implementation not shown */
+    public int numAvailableDogs(int hour) { /* implementation not shown */
         return schedule[hour];
     }
 

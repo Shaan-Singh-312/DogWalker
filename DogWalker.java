@@ -1,10 +1,13 @@
-public class DogWalker
-{
-    /** The maximum number of dogs this walker can walk simultaneously
-     per hour */
+public class DogWalker {
+    /**
+     * The maximum number of dogs this walker can walk simultaneously
+     * per hour
+     */
     private int maxDogs;
 
-    /** The dog-walking company this dog walker is associated with */
+    /**
+     * The dog-walking company this dog walker is associated with
+     */
     private DogWalkCompany company;
 
 
@@ -25,26 +28,25 @@ public class DogWalker
      */
     public int walkDogs(int hour) { /* to be implemented in part (a) */
         int dogs = company.numAvailableDogs(hour);
-        if (dogs < maxDogs){
-            company.updateDogs(hour,dogs);
+        if (dogs < maxDogs) {
+            company.updateDogs(hour, dogs);
             return dogs;
-        }
-        else{
-            company.updateDogs(hour,maxDogs);
+        } else {
+            company.updateDogs(hour, maxDogs);
             return maxDogs;
         }
     }
 
-    public int dogWalkShift(int start, int end){
+    public int dogWalkShift(int start, int end) {
         int pay = 0;
-        while (start <= end){
+        while (start <= end) {
             int dogs = walkDogs(start);
-            pay += dogs *5;
+            pay += dogs * 5;
 
-            if (dogs == maxDogs || start >= 9 && end <= 17){
+            if (dogs == maxDogs || start >= 9 && start <= 17) {
                 pay += 3;
             }
-            start ++;
+            start++;
 
         }
         return pay;
